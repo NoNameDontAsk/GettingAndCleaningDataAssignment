@@ -22,12 +22,12 @@ Finally a Fast Fourier Transform (FFT) was applied to some of these signals prod
 These signals were used to estimate variables of the feature vector for each pattern:  
 '-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.
 
-tBodyAcc-XYZ
-tGravityAcc-XYZ
-tBodyAccJerk-XYZ
-tBodyGyro-XYZ
-tBodyGyroJerk-XYZ
-tBodyAccMag
+>tBodyAcc-XYZ
+>tGravityAcc-XYZ
+>tBodyAccJerk-XYZ
+>tBodyGyro-XYZ
+>tBodyGyroJerk-XYZ
+>tBodyAccMag
 tGravityAccMag
 tBodyAccJerkMag
 tBodyGyroMag
@@ -77,6 +77,7 @@ tBodyGyroJerkMean
 	
 ## Variable Definition of the Transformed Dataset
 Variable Name | Description
+------------- | -------------  
 SubjectID | an ID used to identify volunteers
 DescriptiveActivityInfo | contain activity labels such as WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING
 "Remaining Columns" | contain the average of each variable that was produced by step 4 in "Tranformations on the Original Dataset"

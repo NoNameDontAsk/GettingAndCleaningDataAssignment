@@ -71,3 +71,5 @@ names(combined_dataset_2) <- gsub("BodyBody", "Body", names(combined_dataset_2))
 library(reshape2)
 melted <- melt(combined_dataset_2, id.vars = c('SubjectID', 'DescriptiveActivityInfo', 'ActivityInfo'))
 tidydataset <- dcast(melted, SubjectID+DescriptiveActivityInfo~variable, mean)
+
+write.table(tidydataset, "tidydataset.txt", row.names = FALSE)

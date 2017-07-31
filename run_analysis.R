@@ -1,38 +1,49 @@
+#Download and unzip the dataset:
+filename <- "Getting And Cleaning Data Assignment Dataset.zip"
+
+if (!file.exists(filename)){
+        fileURL <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip "
+        download.file(fileURL, filename)
+}  
+if (!file.exists("UCI HAR Dataset")) { 
+        unzip(filename) 
+}
+
 #Create a dataset called "features_dataset" using "features.txt"
-features_dataset <- read.table("C3W4/UCI HAR Dataset/features.txt")
+features_dataset <- read.table("UCI HAR Dataset/features.txt")
 
 #Remove the first column in "features_dataset"
 features_dataset <- features_dataset[,2]
 
 #Create a dataset called "test_dataset" using "X_test.txt"
-test_dataset <- read.table("C3W4/UCI HAR Dataset/test/X_test.txt")
+test_dataset <- read.table("UCI HAR Dataset/test/X_test.txt")
 
 #Label the columns in "test_dataset" using "features_dataset"
 names(test_dataset) <- features_dataset
 
 #Create a dataset called "test_activity_dataset" using "y_test.txt"
-test_activity_dataset <- read.table("C3W4/UCI HAR Dataset/test/y_test.txt")
+test_activity_dataset <- read.table("UCI HAR Dataset/test/y_test.txt")
 names(test_activity_dataset) <- "ActivityInfo"
 
 #Create a dataset called "test_subject_dataset" using "subject_test.txt"
-test_subject_dataset <- read.table("C3W4/UCI HAR Dataset/test/subject_test.txt")
+test_subject_dataset <- read.table("UCI HAR Dataset/test/subject_test.txt")
 names(test_subject_dataset) <- "SubjectID"
 
 #Append subject and activity information to "test_dataset"
 test_dataset <- cbind(test_subject_dataset,test_activity_dataset,test_dataset)
 
 #Create a dataset called "train_dataset" using "X_train.txt"
-train_dataset <- read.table("C3W4/UCI HAR Dataset/train/X_train.txt")
+train_dataset <- read.table("UCI HAR Dataset/train/X_train.txt")
 
 #Label the columns in "train_dataset" using "features_dataset"
 names(train_dataset) <- features_dataset
 
 #Create a dataset called "train_activity_dataset" using "y_train.txt"
-train_activity_dataset <- read.table("C3W4/UCI HAR Dataset/train/y_train.txt")
+train_activity_dataset <- read.table("UCI HAR Dataset/train/y_train.txt")
 names(train_activity_dataset) <- "ActivityInfo"
 
 #Create a dataset called "train_subject_dataset" using "subject_train.txt"
-train_subject_dataset <- read.table("C3W4/UCI HAR Dataset/train/subject_train.txt")
+train_subject_dataset <- read.table("UCI HAR Dataset/train/subject_train.txt")
 names(train_subject_dataset) <- "SubjectID"
 
 #Append subject and activity information to "train_dataset"
